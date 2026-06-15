@@ -1,1 +1,0 @@
-# smart-technology-bd
