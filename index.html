@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Technology BD - Premium Shop & Admin</title>
+    <title>Smart Technology BD - Premium Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,7 +16,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Custom scrollbar for gallery */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -37,15 +36,10 @@
                 <nav class="hidden md:flex space-x-8 text-gray-400">
                     <a href="#home" class="hover:text-white transition">Home</a>
                     <a href="#products" class="hover:text-white transition">Products</a>
-                    <button onclick="triggerAdminAccess()" id="navAdminBtn" class="text-gray-500 hover:text-yellow-500 font-semibold cursor-pointer flex items-center space-x-1 transition">
-                        <span>⚙️ Admin Panel</span>
-                    </button>
+                    <a href="#why-us" class="hover:text-white transition">Why Choose Us</a>
                 </nav>
                 <a href="tel:01717781314" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition text-sm flex items-center space-x-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span>Call Now</span>
+                    <span>📞 Call Now</span>
                 </a>
             </div>
         </header>
@@ -58,98 +52,48 @@
                 Upgrade Your Ride with <br>
                 <span class="gradient-text">Smart Technology BD</span>
             </h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-10">
+            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
                 আমরা দিচ্ছি আধুনিক বাইকারদের জন্য সেরা এবং প্রিমিয়াম কোয়ালিটির স্মার্ট গ্যাজেটস। আপনার রাইডকে আরও নিরাপদ এবং প্রযুক্তিগতভাবে উন্নত করুন।
             </p>
-            <div class="flex justify-center space-x-4">
+            <div class="flex justify-center">
                 <a href="#products" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-blue-500/20 transition">
-                    Explore Products
+                    Explore Premium Products
                 </a>
-                <button onclick="resetToOriginalProducts()" class="bg-gray-900 border border-gray-800 hover:bg-gray-800 text-xs text-yellow-500 font-medium px-4 py-2 rounded-full transition">
-                    🔄 Reset & Load Images
-                </button>
             </div>
         </section>
 
-        <section id="admin-section" class="hidden container mx-auto px-6 py-8 bg-gray-900 border border-yellow-600/30 rounded-2xl my-6 max-w-4xl">
-            <div class="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
-                <h3 id="adminPanelTitle" class="text-xl font-bold text-yellow-500 flex items-center space-x-2">
-                    <span>🛠️ Add New Product</span>
-                </h3>
-                <div class="flex items-center space-x-4">
-                    <button onclick="logoutAdmin()" class="text-red-400 hover:text-red-300 text-xs font-medium bg-red-950/40 px-2.5 py-1 rounded border border-red-900/40">🔒 Logout Admin</button>
-                    <button onclick="closeAdminPanel()" class="text-gray-400 hover:text-white text-sm">✕ Close</button>
-                </div>
-            </div>
-
-            <form id="productForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-sm">
-                <input type="hidden" id="editProductId" value="">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-400 mb-1">Product Name (প্রোডাক্টের নাম)</label>
-                        <input type="text" id="prodName" required placeholder="e.g., Mini Drive Fog Light" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 mb-1">Price (দাম - শুধু সংখ্যা)</label>
-                        <input type="number" id="prodPrice" required placeholder="e.g., 2500" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-gray-400 mb-1">Power Specs</label>
-                        <input type="text" id="prodPower" placeholder="e.g., 60 Watt" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 mb-1">Brightness Specs</label>
-                        <input type="text" id="prodBrightness" placeholder="e.g., 12000 LM" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 mb-1">Warranty</label>
-                        <input type="text" id="prodWarranty" placeholder="e.g., 1 Year Warranty" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-gray-400 mb-1">Main Image URL (প্রধান ছবির লিংক)</label>
-                    <input type="url" id="prodImage" required placeholder="https://i.postimg.cc/..." class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-gray-400 mb-1">More Images (অন্যান্য ছবির লিংক - কমা দিয়ে আলাদা করুন)</label>
-                    <input type="text" id="prodImagesArray" placeholder="https://image1.jpg, https://image2.jpg" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-gray-400 mb-1">Description (বিস্তারিত বিবরণ)</label>
-                    <textarea id="prodDesc" rows="4" required placeholder="প্রোডাক্ট সম্পর্কে বিস্তারিত লিখুন..." class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-gray-400 mb-1">Bullet Points / Features (কমা দিয়ে আলাদা করে লিখুন)</label>
-                    <input type="text" id="prodFeatures" placeholder="Feature 1, Feature 2" class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                </div>
-
-                <button type="submit" id="submitFormBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 rounded-lg transition mt-2">
-                    ➕ Add Product to Website
-                </button>
-            </form>
-        </section>
-
-        <section id="products" class="container mx-auto px-6 py-16 border-t border-gray-900">
+        <section id="products" class="container mx-auto px-6 py-12 border-t border-gray-900">
             <div class="text-center mb-16">
-                <h3 class="text-3xl font-bold mb-2">Our Featured Products</h3>
-                <p class="text-gray-500">সেরা প্রযুক্তির বাইক গ্যাজেটসমূহ</p>
+                <h3 class="text-3xl font-bold mb-2">Our Premium Catalog</h3>
+                <p class="text-gray-500">সেরা প্রযুক্তির বাইক গ্যাজেটসমূহ (দেশব্যাপী দ্রুত ডেলিভারি)</p>
             </div>
 
             <div id="dynamicProductsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 </div>
         </section>
 
-        <footer class="bg-gray-950 py-8 border-t border-gray-900/60 text-center relative">
+        <section id="why-us" class="container mx-auto px-6 py-16 border-t border-gray-900 bg-gray-900/10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800">
+                    <span class="text-3xl">🚚</span>
+                    <h4 class="text-lg font-bold mt-3 mb-1">দেশব্যাপী ক্যাশ অন ডেলিভারি</h4>
+                    <p class="text-gray-400 text-xs">পণ্য হাতে পেয়ে চেক করে টাকা পরিশোধ করার সুবিধা।</p>
+                </div>
+                <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800">
+                    <span class="text-3xl">🛡️</span>
+                    <h4 class="text-lg font-bold mt-3 mb-1">১০০% অরিজিনাল গ্যাজেট</h4>
+                    <p class="text-gray-400 text-xs">আমরা সরাসরি আমদানিকারক থেকে প্রিমিয়াম কোয়ালিটি নিশ্চিত করি।</p>
+                </div>
+                <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800">
+                    <span class="text-3xl">⭐</span>
+                    <h4 class="text-lg font-bold mt-3 mb-1">রিপ্লেসমেন্ট ওয়ারেন্টি</h4>
+                    <p class="text-gray-400 text-xs">নির্দিষ্ট প্রোডাক্টে পাচ্ছেন জেনুইন রিপ্লেসমেন্ট গ্যারান্টি।</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-950 py-8 border-t border-gray-900/60 text-center">
             <p class="text-gray-400 text-sm">&copy; 2026 <span class="text-white font-semibold">Smart Technology BD</span>. All rights reserved.</p>
-            <button onclick="promptAdminLogin()" class="text-gray-800 hover:text-gray-600 text-xs mt-2 transition block mx-auto">🔒 Staff Login</button>
         </footer>
     </div>
 
@@ -182,9 +126,20 @@
 
                 <div class="flex flex-col justify-between h-full">
                     <div>
-                        <span class="text-xs text-blue-500 font-bold uppercase tracking-widest bg-blue-500/10 px-3 py-1 rounded-full">Premium Grade Gadget</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-blue-500 font-bold uppercase tracking-widest bg-blue-500/10 px-3 py-1 rounded-full">Premium Grade Gadget</span>
+                            <span class="text-xs text-green-400 font-medium flex items-center space-x-1">
+                                <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                                <span>In Stock</span>
+                            </span>
+                        </div>
                         <h2 id="detailName" class="text-2xl md:text-4xl font-extrabold text-white mt-4 leading-tight"></h2>
                         
+                        <div class="text-xs text-yellow-500/90 font-medium bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 mt-3 flex items-center justify-between">
+                            <span>🔥 Limited Time Promo Price:</span>
+                            <span class="font-bold font-mono">Ends Soon!</span>
+                        </div>
+
                         <div class="mt-4 mb-6 bg-gray-950/80 inline-block px-5 py-2.5 rounded-xl border border-gray-800">
                             <span class="text-[10px] text-gray-500 block uppercase tracking-wider">বর্তমান অফার মূল্য</span>
                             <span id="detailPrice" class="text-2xl font-black text-green-400"></span>
@@ -205,26 +160,77 @@
                         <ul id="detailFeatures" class="text-sm space-y-2 text-gray-400 mb-6">
                             </ul>
 
-                        <div id="detailWarrantyBox" class="flex items-center space-x-2 text-sm text-green-400 font-semibold bg-green-500/5 border border-green-500/10 p-3 rounded-xl mb-8">
+                        <div id="detailWarrantyBox" class="flex items-center space-x-2 text-sm text-green-400 font-semibold bg-green-500/5 border border-green-500/10 p-3 rounded-xl mb-6">
                             <span>⭐ Guarantee:</span>
                             <span id="detailWarranty"></span>
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-4 border-t border-gray-800 pt-6">
-                        <a id="detailOrderLink" href="#" target="_blank" class="flex-1 bg-blue-600 hover:bg-blue-700 text-center text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center space-x-2">
+                    <div class="flex flex-col gap-3 border-t border-gray-800 pt-6">
+                        <a id="detailOrderLink" href="#" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-center text-white font-bold py-3.5 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
                             <span>💬 Order via Messenger</span>
                         </a>
-                        <a href="tel:01717781314" class="bg-gray-950 hover:bg-gray-900 text-center text-gray-300 border border-gray-800 font-bold px-6 py-3.5 rounded-xl transition flex items-center justify-center space-x-2">
-                            📞 <span>কল করুন</span>
+                        <a id="detailWhatsAppLink" href="#" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-center text-white font-bold py-3.5 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                            <span>💚 Order via WhatsApp</span>
+                        </a>
+                        <a href="#quickCheckoutFormBox" class="w-full bg-gray-950 hover:bg-gray-900 text-center text-gray-300 border border-gray-800 font-bold py-3 rounded-xl transition block">
+                            📦 অর্ডার ফর্মটি পূরণ করুন
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-800/80">
+            <div class="mt-8 bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-800/80">
                 <h3 class="text-xl font-bold text-white mb-4 border-b border-gray-800 pb-2">Product Detailed Description (বিস্তারিত বিবরণ)</h3>
                 <p id="detailDesc" class="text-gray-300 text-base leading-relaxed whitespace-pre-line"></p>
+            </div>
+
+            <div id="quickCheckoutFormBox" class="mt-8 bg-gradient-to-br from-gray-900 to-gray-950 p-6 md:p-10 rounded-3xl border-2 border-blue-600/30 shadow-xl max-w-2xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-black text-white">অর্ডার কনফার্ম করতে ফর্মটি পূরণ করুন</h3>
+                    <p class="text-gray-400 text-xs mt-1">কোনো অগ্রিম পেমেন্ট করতে হবে না, পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।</p>
+                </div>
+                
+                <form onsubmit="handleOrderFormSubmit(event)" class="space-y-4 text-sm">
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-medium">আপনার নাম *</label>
+                        <input type="text" id="custName" required placeholder="উদাঃ মোঃ আলিফ আহমেদ" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-medium">মোবাইল নম্বর *</label>
+                        <input type="tel" id="custPhone" required placeholder="উদাঃ 017XXXXXXXX" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-medium">ডেলিভারি এলাকা সিলেক্ট করুন *</label>
+                        <select id="custArea" onchange="calculateTotal()" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none transition">
+                            <option value="60">ঢাকার ভেতরে (ডেলিভারি চার্জ ৳৬০)</option>
+                            <option value="120">ঢাকার বাইরে (ডেলিভারি চার্জ ৳১২০)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-medium">পূর্ণাঙ্গ ঠিকানা *</label>
+                        <textarea id="custAddress" required rows="3" placeholder="গ্রাম/রোড নম্বর, থানা এবং জেলার নাম উল্লেখ করুন..." class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none transition"></textarea>
+                    </div>
+
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-2 mt-4">
+                        <div class="flex justify-between text-gray-400 text-xs">
+                            <span>প্রোডাক্টের দাম:</span>
+                            <span id="calcProdPrice">৳ ০</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400 text-xs">
+                            <span>ডেলিভারি চার্জ:</span>
+                            <span id="calcDeliveryCharge">৳ ৬০</span>
+                        </div>
+                        <div class="flex justify-between text-white text-base font-bold border-t border-gray-800 pt-2">
+                            <span>সর্বমোট বিল:</span>
+                            <span id="calcTotalBill" class="text-green-400">৳ ০</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-black py-4 rounded-xl shadow-lg transition mt-4 text-base tracking-wider uppercase">
+                        ✅ অর্ডার কনফার্ম করুন (৳০ অগ্রিম)
+                    </button>
+                </form>
             </div>
         </main>
 
@@ -235,15 +241,12 @@
 
 
     <script>
-        const ADMIN_PASSWORD = "seu123";
-        let isAdminLoggedIn = false;
-
-        // FIXED COMPLETE PHOTO VAULT MAPPED ACCORDINGLY
-        const initialProducts = [
+        // IMMUTABLE PREMIUM PRODUCT VAULT (No admin tampering allowed)
+        const products = [
             {
                 id: "1",
                 name: "Smart Android Display for Bike",
-                price: "15000",
+                price: 15000,
                 desc: "হ্যালো বাইকার ব্রাদার্স! আমরা আপনাদের জন্য নিয়ে এসেছি স্পেশালি বাইকের জন্য বানানো এই আধুনিক স্মার্ট ডিভাইস। ২টি 2K রেজোলিউশন ফ্রন্ট ও রিয়ার ক্যামেরা এবং ৬ ইঞ্চি ফুল টাচ আইপিএস ডিসপ্লে স্ক্রিন সহ। এটি সম্পূর্ণ ওয়্যারলেসভাবে Apple CarPlay এবং Android Auto সাপোর্ট করে, যার মাধ্যমে রাইড করার সময় সরাসরি স্ক্রিনেই জিপিএস গুগল ম্যাপ নোভিগেশন ও সব নোটিফিকেশন হ্যান্ডেল করতে পারবেন। চাকার নিখুঁত হাওয়া মাপার জন্য থাকছে প্রিমিয়াম ওয়্যারলেস সেন্সর কিট।",
                 image: "https://i.postimg.cc/JGxYbXWf/689480570-122276295884190777-7363159906978310095-n.jpg",
                 images: [
@@ -260,7 +263,7 @@
             {
                 id: "2",
                 name: "Model A1 LED Light",
-                price: "4000",
+                price: 3200,
                 desc: "আপনার বাইকের হেডলাইটের স্টক হ্যালোজেন আলোর পারফরম্যান্স নিয়ে চিন্তিত? Model A1 LED Light আপনার রাতের রাইডকে দেবে দিনের মতো চমৎকার ও ব্রাইট ভিশন। এটি অত্যন্ত কম ব্যাটারি পাওয়ার (বিদ্যুৎ) খরচ করে এবং সর্বোচ্চ শক্তিশালী ও ক্লিয়ার ফোকাস নিশ্চিত করে। এটি শতভাগ ওয়াটারপ্রুফ এবং অ্যালুমিনিয়াম হিটসিঙ্ক সমৃদ্ধ দীর্ঘস্থায়ী বডি।",
                 image: "https://i.postimg.cc/MnRD9jkj/689009076-122275698200190777-134702638915894005-n.jpg",
                 images: [
@@ -277,7 +280,7 @@
             {
                 id: "3",
                 name: "Turbo Fog Light P30",
-                price: "4500",
+                price: 4500,
                 desc: "শীতের ঘন কুয়াশাতে বা বৃষ্টির রাতে ফগ লাইট ছাড়া হাইওয়েতে লং রাইড করা অত্যন্ত ঝুঁকিপূর্ণ। যারা হেভী ডিউটি বিল্ড কোয়ালিটির সবচেয়ে পাওয়ারফুল ফগ লাইট সেট খুঁজছেন, তাদের জন্য এই Turbo Fog Light P30 হলো এককথায় বেস্ট চয়েস। এটি হাই ও লো জোড়া কম্বিনেশন লাইট প্রোভাইড করে যা ঘন কুয়াশাতেও দূরের রাস্তা একদম স্পষ্ট দেখায়। সাথে পাচ্ছেন সম্পূর্ণ কাস্টম মেটাল ক্ল্যাম্প ও ডেডিকেটেড এক্সটার্নাল ডিপার পুশ সুইচ।",
                 image: "https://i.postimg.cc/0KwM9D0z/590621755-122253395054190777-820734442727542653-n.jpg",
                 images: [
@@ -287,89 +290,34 @@
                 ],
                 power: "30W Per Bulb",
                 brightness: "6000 LM Hyper",
-                warranty: "1 Year Replacement Warrantyি",
+                warranty: "১ বছরের ফুল রিপ্লেস ওয়ারেন্টি",
                 features: ["ইনবিল্ড রিলে (In-built Relay) যুক্ত", "এটাচড সুইচ ডিপাড় (Dipper) সহ", "হেভী বিল্ড ফুল অ্যালুমিনিয়াম বডি"]
             }
         ];
 
-        let products = JSON.parse(localStorage.getItem('smart_bd_products')) || initialProducts;
+        let activeProductPrice = 0;
+        let activeProductName = "";
 
-        function resetToOriginalProducts() {
-            localStorage.setItem('smart_bd_products', JSON.stringify(initialProducts));
-            products = [...initialProducts];
-            renderProducts();
-            alert("🎉 সফলভাবে একদম ফ্রেশ ডেটা ইমেজ সহ রিলোড করা হয়েছে!");
-        }
-
-        function promptAdminLogin() {
-            const input = prompt("অনুগ্রহ করে আপনার অ্যাডমিন সিক্রেট পাসওয়ার্ডটি দিন:");
-            if (input === ADMIN_PASSWORD) {
-                isAdminLoggedIn = true;
-                alert("🎉 সফলভাবে লগইন হয়েছে!");
-                document.getElementById('navAdminBtn').className = "text-yellow-500 font-semibold cursor-pointer flex items-center space-x-1 transition";
-                openAddMode();
-                renderProducts();
-            } else if (input !== null) {
-                alert("❌ ভুল পাসওয়ার্ড!");
-            }
-        }
-
-        function triggerAdminAccess() {
-            if (isAdminLoggedIn) openAddMode(); else promptAdminLogin();
-        }
-
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            document.getElementById('admin-section').classList.add('hidden');
-            document.getElementById('navAdminBtn').className = "text-gray-500 hover:text-yellow-500 font-semibold cursor-pointer flex items-center space-x-1 transition";
-            alert("🔒 অ্যাডমিন লগআউট হয়েছে।");
-            renderProducts();
-        }
-
-        function openAddMode() {
-            document.getElementById('productForm').reset();
-            document.getElementById('editProductId').value = '';
-            document.getElementById('adminPanelTitle').innerText = '🛠️ Add New Product';
-            document.getElementById('submitFormBtn').innerText = '➕ Add Product to Website';
-            const adminBox = document.getElementById('admin-section');
-            adminBox.classList.remove('hidden');
-            adminBox.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeAdminPanel() {
-            document.getElementById('admin-section').classList.add('hidden');
-        }
-
+        // Render Homepage Cards
         function renderProducts() {
             const container = document.getElementById('dynamicProductsGrid');
             container.innerHTML = '';
 
             products.forEach(prod => {
                 let featuresHTML = '';
-                if(prod.features && prod.features.length > 0) {
+                if(prod.features) {
                     prod.features.slice(0, 2).forEach(f => {
-                        if(f.trim() !== '') featuresHTML += `<li class="flex items-start space-x-2 text-gray-400"><span>✔</span><span class="truncate">${f.trim()}</span></li>`;
+                        featuresHTML += `<li class="flex items-start space-x-2 text-gray-400"><span>✔</span><span class="truncate">${f.trim()}</span></li>`;
                     });
-                }
-
-                let adminControlsHTML = '';
-                if (isAdminLoggedIn) {
-                    adminControlsHTML = `
-                        <div class="absolute top-4 right-4 z-10 flex space-x-1.5">
-                            <button onclick="startEditProduct('${prod.id}', event)" class="bg-blue-950 hover:bg-blue-900 text-blue-400 text-[11px] px-2.5 py-1 rounded-md border border-blue-800 transition">✏️ Edit</button>
-                            <button onclick="deleteProduct('${prod.id}', event)" class="bg-red-950 hover:bg-red-900 text-red-400 text-[11px] px-2.5 py-1 rounded-md border border-red-900 transition">🗑️ Delete</button>
-                        </div>
-                    `;
                 }
 
                 const cardHTML = `
                     <div onclick="showProductDetails('${prod.id}')" class="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-blue-500/40 transition duration-300 flex flex-col justify-between h-full relative group cursor-pointer shadow-lg">
                         <div>
-                            ${adminControlsHTML}
                             <div class="relative w-full aspect-[4/3] bg-gray-800 rounded-xl mb-4 overflow-hidden">
                                 <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             </div>
-                            <span class="text-[10px] text-blue-400 font-semibold uppercase tracking-wider">Smart Tech Core</span>
+                            <span class="text-[10px] text-blue-400 font-semibold uppercase tracking-wider">Premium Gear</span>
                             <h4 class="text-lg font-bold mt-1 text-white leading-tight group-hover:text-blue-400 transition">${prod.name}</h4>
                             <p class="text-gray-400 text-xs mt-2 mb-4 line-clamp-2 leading-relaxed">${prod.desc}</p>
                             <ul class="text-xs space-y-1 text-gray-300 mb-4">
@@ -380,10 +328,10 @@
                             <div class="border-t border-gray-800/60 pt-4 flex justify-between items-center">
                                 <div>
                                     <span class="text-[9px] text-gray-500 block">দাম</span>
-                                    <span class="text-base font-bold text-green-400">৳ ${Number(prod.price).toLocaleString('en-IN')}</span>
+                                    <span class="text-base font-bold text-green-400">৳ ${prod.price.toLocaleString('en-IN')}</span>
                                 </div>
                                 <span class="bg-blue-600 group-hover:bg-blue-700 text-xs text-white font-semibold px-4 py-2 rounded-xl transition">
-                                    Order Now
+                                    View Details
                                 </span>
                             </div>
                         </div>
@@ -393,21 +341,21 @@
             });
         }
 
-        // SHOW DETAILS PAGE WITH INTERACTIVE MULTI-ANGLE GALLERY
+        // Show Single Product Screen Loader
         function showProductDetails(id) {
             const prod = products.find(p => p.id === id);
             if (!prod) return;
 
-            // Load values to template inputs
+            activeProductPrice = prod.price;
+            activeProductName = prod.name;
+
             document.getElementById('detailName').innerText = prod.name;
-            document.getElementById('detailPrice').innerText = `৳ ${Number(prod.price).toLocaleString('en-IN')} টাকা`;
+            document.getElementById('detailPrice').innerText = `৳ ${prod.price.toLocaleString('en-IN')} টাকা`;
             document.getElementById('detailDesc').innerText = prod.desc;
 
-            // FORCE showcase default load window main screen 
             const mainImgElement = document.getElementById('detailImg');
             mainImgElement.src = prod.image;
 
-            // Load interactive gallery thumbnails loop row
             const thumbsStrip = document.getElementById('detailThumbsStrip');
             thumbsStrip.innerHTML = '';
             
@@ -417,10 +365,8 @@
                 thumbBtn.className = `w-16 h-12 md:w-20 md:h-16 rounded-lg overflow-hidden border-2 bg-gray-950 flex-shrink-0 transition duration-200 ${idx === 0 ? 'border-blue-500 scale-95' : 'border-gray-800 hover:border-gray-600'}`;
                 thumbBtn.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
                 
-                // Click to swap source view function
                 thumbBtn.onclick = function() {
                     mainImgElement.src = imgUrl;
-                    // Reset active border class styling
                     Array.from(thumbsStrip.children).forEach(btn => {
                         btn.classList.remove('border-blue-500', 'scale-95');
                         btn.classList.add('border-gray-800');
@@ -431,7 +377,6 @@
                 thumbsStrip.appendChild(thumbBtn);
             });
 
-            // Specs Layout blocks validators
             if(prod.power) {
                 document.getElementById('detailPowerBox').classList.remove('hidden');
                 document.getElementById('detailPower').innerText = prod.power;
@@ -451,11 +396,15 @@
             featuresContainer.innerHTML = '';
             if(prod.features) {
                 prod.features.forEach(f => {
-                    if(f.trim() !== '') featuresContainer.innerHTML += `<li class="flex items-center space-x-2"><span>⚡</span> <span>${f.trim()}</span></li>`;
+                    featuresContainer.innerHTML += `<li class="flex items-center space-x-2"><span>⚡</span> <span>${f.trim()}</span></li>`;
                 });
             }
 
-            document.getElementById('detailOrderLink').href = `https://m.me/110594228456860?text=Hi, I want to order: ${encodeURIComponent(prod.name)}`;
+            // Direct Contact Links Setup
+            document.getElementById('detailOrderLink').href = `https://m.me/110594228456860?text=Hi, I want to order: ${encodeURIComponent(prod.name)} (Price: ৳${prod.price})`;
+            document.getElementById('detailWhatsAppLink').href = `https://wa.me/8801717781314?text=Hello, I want to confirm order for: ${encodeURIComponent(prod.name)} - Price: ৳${prod.price}`;
+
+            calculateTotal();
 
             document.getElementById('store-front-view').classList.add('hidden');
             document.getElementById('product-details-view').classList.remove('hidden');
@@ -467,76 +416,42 @@
             document.getElementById('store-front-view').classList.remove('hidden');
         }
 
-        function startEditProduct(id, event) {
-            event.stopPropagation();
-            if(!isAdminLoggedIn) return;
-            const targetProd = products.find(p => p.id === id);
-            if (!targetProd) return;
+        // Live Delivery Cost Formula Solver
+        function calculateTotal() {
+            const deliveryCharge = parseInt(document.getElementById('custArea').value) || 60;
+            const totalBill = activeProductPrice + deliveryCharge;
 
-            document.getElementById('editProductId').value = targetProd.id;
-            document.getElementById('prodName').value = targetProd.name;
-            document.getElementById('prodPrice').value = targetProd.price;
-            document.getElementById('prodPower').value = targetProd.power || '';
-            document.getElementById('prodBrightness').value = targetProd.brightness || '';
-            document.getElementById('prodWarranty').value = targetProd.warranty || '';
-            document.getElementById('prodImage').value = targetProd.image;
-            document.getElementById('prodImagesArray').value = targetProd.images ? targetProd.images.join(', ') : '';
-            document.getElementById('prodDesc').value = targetProd.desc;
-            document.getElementById('prodFeatures').value = targetProd.features ? targetProd.features.join(', ') : '';
-
-            document.getElementById('adminPanelTitle').innerText = '✏️ Edit Product Details';
-            document.getElementById('submitFormBtn').innerText = '💾 Save Changes';
-
-            const adminBox = document.getElementById('admin-section');
-            adminBox.classList.remove('hidden');
-            adminBox.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('calcProdPrice').innerText = `৳ ${activeProductPrice.toLocaleString('en-IN')}`;
+            document.getElementById('calcDeliveryCharge').innerText = `৳ ${deliveryCharge}`;
+            document.getElementById('calcTotalBill').innerText = `৳ ${totalBill.toLocaleString('en-IN')}`;
         }
 
-        function handleFormSubmit(event) {
+        // Submitting Order Form Directly to WhatsApp to avoid server setup
+        function handleOrderFormSubmit(event) {
             event.preventDefault();
-            if(!isAdminLoggedIn) return;
+            
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const areaSelect = document.getElementById('custArea');
+            const areaText = areaSelect.options[areaSelect.selectedIndex].text;
+            const deliveryCharge = areaSelect.value;
+            const address = document.getElementById('custAddress').value;
+            const finalBill = activeProductPrice + parseInt(deliveryCharge);
 
-            const editId = document.getElementById('editProductId').value;
-            const name = document.getElementById('prodName').value;
-            const price = document.getElementById('prodPrice').value;
-            const power = document.getElementById('prodPower').value;
-            const brightness = document.getElementById('prodBrightness').value;
-            const warranty = document.getElementById('prodWarranty').value;
-            const image = document.getElementById('prodImage').value;
-            const extraImgsInput = document.getElementById('prodImagesArray').value;
-            const desc = document.getElementById('prodDesc').value;
-            const featuresInput = document.getElementById('prodFeatures').value;
+            // Structure professional text message
+            const textMessage = `🚨 *NEW ORDER CONFIRMED* 🚨\n\n` +
+                                `📝 *Product:* ${activeProductName}\n` +
+                                `💰 *Price:* ৳${activeProductPrice}\n` +
+                                `🚚 *Area:* ${areaText}\n\n` +
+                                `👤 *Customer Name:* ${name}\n` +
+                                `📞 *Phone Number:* ${phone}\n` +
+                                `📍 *Full Address:* ${address}\n\n` +
+                                `💵 *Total Payable Bill:* ৳${finalBill}`;
 
-            const features = featuresInput ? featuresInput.split(',') : [];
-            let images = extraImgsInput ? extraImgsInput.split(',').map(url => url.trim()) : [];
-            if(!images.includes(image)) images.unshift(image);
-
-            if (editId) {
-                const index = products.findIndex(p => p.id === editId);
-                if (index !== -1) {
-                    products[index] = { id: editId, name, price, desc, image, images, power, brightness, warranty, features };
-                    alert('🎉 প্রোডাক্টটি আপডেট হয়েছে!');
-                }
-            } else {
-                const newProduct = { id: Date.now().toString(), name, price, desc, image, images, power, brightness, warranty, features };
-                products.push(newProduct);
-                alert('🎉 নতুন প্রোডাক্ট যুক্ত হয়েছে!');
-            }
-
-            localStorage.setItem('smart_bd_products', JSON.stringify(products));
-            renderProducts();
-            document.getElementById('productForm').reset();
-            document.getElementById('admin-section').classList.add('hidden');
-        }
-
-        function deleteProduct(id, event) {
-            event.stopPropagation();
-            if(!isAdminLoggedIn) return;
-            if(confirm('রিমুভ করতে চান?')) {
-                products = products.filter(p => p.id !== id);
-                localStorage.setItem('smart_bd_products', JSON.stringify(products));
-                renderProducts();
-            }
+            // Redirect smoothly to your WhatsApp Business number with filled text
+            const whatsappUrl = `https://wa.me/8801717781314?text=${encodeURIComponent(textMessage)}`;
+            alert("🎉 ধন্যবাদ! আপনার অর্ডার ডিটেইলস প্রস্তুত করা হয়েছে। 'OK' প্রেস করলেই এটি সরাসরি আমাদের হোয়াটসঅ্যাপে চলে আসবে এবং কনফার্ম হয়ে যাবে।");
+            window.open(whatsappUrl, '_blank');
         }
 
         window.onload = renderProducts;
