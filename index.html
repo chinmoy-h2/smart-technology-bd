@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Technology BD - Premium Shop</title>
+    <!-- Tailwind CSS for Modern UI -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Perfect Bengali Rendering -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -27,7 +29,9 @@
 </head>
 <body class="text-gray-100 scroll-smooth">
 
+    <!-- MAIN STORE FRONT VIEW -->
     <div id="store-front-view">
+        <!-- Header / Navbar -->
         <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <h1 class="text-2xl font-bold tracking-wider text-white cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -44,6 +48,7 @@
             </div>
         </header>
 
+        <!-- Hero Section -->
         <section id="home" class="container mx-auto px-6 py-20 text-center">
             <span class="text-xs font-semibold tracking-widest text-blue-500 uppercase bg-blue-500/10 px-3 py-1 rounded-full">
                 Next-Gen Bike Gadgets
@@ -62,16 +67,20 @@
             </div>
         </section>
 
+        <!-- Products Main Grid -->
         <section id="products" class="container mx-auto px-6 py-12 border-t border-gray-900">
             <div class="text-center mb-16">
                 <h3 class="text-3xl font-bold mb-2">Our Premium Catalog</h3>
                 <p class="text-gray-500">সেরা প্রযুক্তির বাইক গ্যাজেটসমূহ (দেশব্যাপী দ্রুত ডেলিভারি)</p>
             </div>
 
+            <!-- Dynamic Product Grid -->
             <div id="dynamicProductsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                </div>
+                <!-- Products get injected here -->
+            </div>
         </section>
 
+        <!-- Trust Factor / Why Choose Us -->
         <section id="why-us" class="container mx-auto px-6 py-16 border-t border-gray-900 bg-gray-900/10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800">
@@ -92,13 +101,16 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="bg-gray-950 py-8 border-t border-gray-900/60 text-center">
             <p class="text-gray-400 text-sm">&copy; 2026 <span class="text-white font-semibold">Smart Technology BD</span>. All rights reserved.</p>
         </footer>
     </div>
 
 
+    <!-- DYNAMIC SINGLE PRODUCT DETAILS PAGE VIEW -->
     <div id="product-details-view" class="hidden min-h-screen bg-[#0b0f19]">
+        <!-- Navbar for Details View -->
         <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <button onclick="hideProductDetails()" class="text-blue-500 hover:text-blue-400 font-semibold flex items-center space-x-2 transition text-sm">
@@ -113,17 +125,23 @@
             </div>
         </header>
 
+        <!-- Main Details Content -->
         <main class="container mx-auto px-6 py-12 max-w-5xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-800/80">
                 
+                <!-- Left Side: Interactive Dynamic Gallery System -->
                 <div class="w-full flex flex-col space-y-4">
+                    <!-- Large Showcase Window -->
                     <div class="w-full bg-gray-950 rounded-2xl overflow-hidden border border-gray-800 flex items-center justify-center aspect-[4/3] shadow-2xl relative">
                         <img id="detailImg" src="" alt="Main Showcase Image" class="w-full h-full object-cover block">
                     </div>
+                    <!-- Small Multi-view Thumbnails Strip -->
                     <div id="detailThumbsStrip" class="flex items-center space-x-3 overflow-x-auto py-2 no-scrollbar">
-                        </div>
+                        <!-- Tiny thumbnails load here dynamically -->
+                    </div>
                 </div>
 
+                <!-- Right Side: Product Info Stack -->
                 <div class="flex flex-col justify-between h-full">
                     <div>
                         <div class="flex justify-between items-center">
@@ -135,16 +153,19 @@
                         </div>
                         <h2 id="detailName" class="text-2xl md:text-4xl font-extrabold text-white mt-4 leading-tight"></h2>
                         
+                        <!-- Limited Offer Timer -->
                         <div class="text-xs text-yellow-500/90 font-medium bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 mt-3 flex items-center justify-between">
                             <span>🔥 Limited Time Promo Price:</span>
                             <span class="font-bold font-mono">Ends Soon!</span>
                         </div>
 
+                        <!-- Price Badge -->
                         <div class="mt-4 mb-6 bg-gray-950/80 inline-block px-5 py-2.5 rounded-xl border border-gray-800">
                             <span class="text-[10px] text-gray-500 block uppercase tracking-wider">বর্তমান অফার মূল্য</span>
                             <span id="detailPrice" class="text-2xl font-black text-green-400"></span>
                         </div>
 
+                        <!-- Highlights Specs -->
                         <div class="grid grid-cols-2 gap-3 mb-6">
                             <div id="detailPowerBox" class="bg-gray-900 p-3 rounded-xl border border-gray-800">
                                 <span class="text-[9px] text-gray-500 block uppercase">Power Specs</span>
@@ -156,16 +177,20 @@
                             </div>
                         </div>
 
+                        <!-- Features / Bullet Points -->
                         <h4 class="text-sm font-semibold text-gray-300 mb-3">প্রধান সুবিধাসমূহ:</h4>
                         <ul id="detailFeatures" class="text-sm space-y-2 text-gray-400 mb-6">
-                            </ul>
+                            <!-- Injected Dynamically -->
+                        </ul>
 
+                        <!-- Warranty Badge -->
                         <div id="detailWarrantyBox" class="flex items-center space-x-2 text-sm text-green-400 font-semibold bg-green-500/5 border border-green-500/10 p-3 rounded-xl mb-6">
                             <span>⭐ Guarantee:</span>
                             <span id="detailWarranty"></span>
                         </div>
                     </div>
 
+                    <!-- Instant Checkout Action Buttons Split -->
                     <div class="flex flex-col gap-3 border-t border-gray-800 pt-6">
                         <a id="detailOrderLink" href="#" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-center text-white font-bold py-3.5 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
                             <span>💬 Order via Messenger</span>
@@ -180,11 +205,13 @@
                 </div>
             </div>
 
+            <!-- Full Product Description Section -->
             <div class="mt-8 bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-800/80">
                 <h3 class="text-xl font-bold text-white mb-4 border-b border-gray-800 pb-2">Product Detailed Description (বিস্তারিত বিবরণ)</h3>
                 <p id="detailDesc" class="text-gray-300 text-base leading-relaxed whitespace-pre-line"></p>
             </div>
 
+            <!-- UPGRADE: ADVANCED CASH ON DELIVERY FORM INTEGRATION -->
             <div id="quickCheckoutFormBox" class="mt-8 bg-gradient-to-br from-gray-900 to-gray-950 p-6 md:p-10 rounded-3xl border-2 border-blue-600/30 shadow-xl max-w-2xl mx-auto">
                 <div class="text-center mb-6">
                     <h3 class="text-2xl font-black text-white">অর্ডার কনফার্ম করতে ফর্মটি পূরণ করুন</h3>
@@ -212,6 +239,7 @@
                         <textarea id="custAddress" required rows="3" placeholder="গ্রাম/রোড নম্বর, থানা এবং জেলার নাম উল্লেখ করুন..." class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none transition"></textarea>
                     </div>
 
+                    <!-- Live Price Calculator Matrix -->
                     <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-2 mt-4">
                         <div class="flex justify-between text-gray-400 text-xs">
                             <span>প্রোডাক্টের দাম:</span>
@@ -240,8 +268,12 @@
     </div>
 
 
+    <!-- JAVASCRIPT SMART CORE ENGINE -->
     <script>
-        // IMMUTABLE PREMIUM PRODUCT VAULT (No admin tampering allowed)
+        // NEW EXCLUSIVE OWNER TARGET PHONE NUMBER FOR WHATSAPP ORDER ROUTING
+        const TARGET_WHATSAPP_NUMBER = "8801982960886";
+
+        // IMMUTABLE PREMIUM PRODUCT DATA VAULT
         const products = [
             {
                 id: "1",
@@ -281,7 +313,7 @@
                 id: "3",
                 name: "Turbo Fog Light P30",
                 price: 4500,
-                desc: "শীতের ঘন কুয়াশাতে বা বৃষ্টির রাতে ফগ লাইট ছাড়া হাইওয়েতে লং রাইড করা অত্যন্ত ঝুঁকিপূর্ণ। যারা হেভী ডিউটি বিল্ড কোয়ালিটির সবচেয়ে পাওয়ারফুল ফগ লাইট সেট খুঁজছেন, তাদের জন্য এই Turbo Fog Light P30 হলো এককথায় বেস্ট চয়েস। এটি হাই ও লো জোড়া কম্বিনেশন লাইট প্রোভাইড করে যা ঘন কুয়াশাতেও দূরের রাস্তা একদম স্পষ্ট দেখায়। সাথে পাচ্ছেন সম্পূর্ণ কাস্টম মেটাল ক্ল্যাম্প ও ডেডিকেটেড এক্সটার্নাল ডিপার পুশ সুইচ।",
+                desc: "শীতের ঘন কুয়াশাতে বা বৃষ্টির রাতে ফগ লাইট ছাড়া হাইওয়েতে লং রাইড করা অত্যন্ত ঝুঁকিপূর্ণ। যারা হেভী ডিউটি বিল্ড কোয়ালিটির সবচেয়ে পাওয়ারফুল ফগ লাইট সেট খুঁজছেন, তাদের জন্য এই Turbo Fog Light P30 হলো এককথায় বেস্ট চয়েস। এটি হাই ও লো জোড়া কম্বিনেশন লাইট প্রোভاید করে যা ঘন কুয়াশাতেও দূরের রাস্তা একদম স্পষ্ট দেখায়। সাথে পাচ্ছেন সম্পূর্ণ কাস্টম মেটাল ক্ল্যাম্প ও ডেডিকেটেড এক্সটার্নাল ডিপার পুশ সুইচ।",
                 image: "https://i.postimg.cc/0KwM9D0z/590621755-122253395054190777-820734442727542653-n.jpg",
                 images: [
                     "https://i.postimg.cc/0KwM9D0z/590621755-122253395054190777-820734442727542653-n.jpg",
@@ -400,9 +432,9 @@
                 });
             }
 
-            // Direct Contact Links Setup
+            // Direct Contact Links Setup using dynamic number variable
             document.getElementById('detailOrderLink').href = `https://m.me/110594228456860?text=Hi, I want to order: ${encodeURIComponent(prod.name)} (Price: ৳${prod.price})`;
-            document.getElementById('detailWhatsAppLink').href = `https://wa.me/8801717781314?text=Hello, I want to confirm order for: ${encodeURIComponent(prod.name)} - Price: ৳${prod.price}`;
+            document.getElementById('detailWhatsAppLink').href = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=Hello, I want to confirm order for: ${encodeURIComponent(prod.name)} - Price: ৳${prod.price}`;
 
             calculateTotal();
 
@@ -426,7 +458,7 @@
             document.getElementById('calcTotalBill').innerText = `৳ ${totalBill.toLocaleString('en-IN')}`;
         }
 
-        // Submitting Order Form Directly to WhatsApp to avoid server setup
+        // Submitting Order Form Directly to Owner's Specified WhatsApp Number
         function handleOrderFormSubmit(event) {
             event.preventDefault();
             
@@ -448,8 +480,8 @@
                                 `📍 *Full Address:* ${address}\n\n` +
                                 `💵 *Total Payable Bill:* ৳${finalBill}`;
 
-            // Redirect smoothly to your WhatsApp Business number with filled text
-            const whatsappUrl = `https://wa.me/8801717781314?text=${encodeURIComponent(textMessage)}`;
+            // Redirect smoothly to your specified WhatsApp number with filled text
+            const whatsappUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${encodeURIComponent(textMessage)}`;
             alert("🎉 ধন্যবাদ! আপনার অর্ডার ডিটেইলস প্রস্তুত করা হয়েছে। 'OK' প্রেস করলেই এটি সরাসরি আমাদের হোয়াটসঅ্যাপে চলে আসবে এবং কনফার্ম হয়ে যাবে।");
             window.open(whatsappUrl, '_blank');
         }
